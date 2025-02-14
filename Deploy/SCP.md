@@ -70,7 +70,41 @@ scp root@timeweb:/home/root/index.html root@timeweb:/home/root/www/
 ***При вводе команд обращайте внимание на одну деталь: путь к директории, в которую вы копируете данные, обязательно должен заканчиваться косой чертой, иначе произойдет перезапись файлов, и вы потеряете данные, хранящиеся в конечной папке.***
 
 
+# RSYNC
+Копирование файлов и папок с локальной машины на удаленный север с использованием rsync
+```shell
+ruslan@ruslan-CoreBook-X:~$ rsync -e "ssh -p 2022" -Praz /home/ruslan/PycharmProjects/python_advanced/module_08_deploy/materials/new_year_application/templates admin@185.119.59.245:/home/admin/workspace/new_year_application/
 
+```
+
+## Шпаргалка по rsync
+
+- Синхронизация каталогов dir1 и dir2 на одной машине:
+    
+    rsync -a dir1 dir2
+    
+- Синхронизация удалённой системы:
+    
+    rsync -a local_dir username@remote_host:remote_dir
+    
+- В обратную сторону:
+    
+    rsync -a username@remote_host:remote_dir local_dir
+    
+- Использование с ключом:
+    
+    rsync -e 'ssh -i timeweb' -Paz username@remote_host:remote_dir local_dir
+    
+
+**Опции:**
+
+−r — рекурсивная синхронизация.  
+−a — режим архива, эквивалент -rlptgoD.  
+−z — сжатие данных.  
+−P — показать прогресс синхронизации.  
+−e — используется для задания параметров при подключении через SSH.
+
+Полный список опций можно найти [в документации](https://linux.die.net/man/1/rsync).
 
 
 
