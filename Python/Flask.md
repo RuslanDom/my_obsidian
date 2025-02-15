@@ -1,7 +1,7 @@
 # Документация по Flask
 
 https://docs-python.ru/packages/veb-frejmvork-flask-python/
-
+https://flask.palletsprojects.com/en/stable/quickstart/
 # LINUX
 
 # Быстрый старт
