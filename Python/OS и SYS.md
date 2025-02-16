@@ -4,6 +4,42 @@
 
 https://docs-python.ru/standart-library/modul-os-python/
 
+#### _`os.environ`_:
+
+Переменная [`os.environ`](https://docs-python.ru/standart-library/modul-os-python/upravlenie-sredoj-okruzhenija-koda/ "Управление переменной средой окружения системы в Python.") это объект сопоставления, подобный [словарю](https://docs-python.ru/tutorial/osnovnye-vstroennye-tipy-python/tip-dannyh-dict-slovar/ "Словарь dict в Python."), который представляет переменные среды окружения системы. Например, `os.environ['HOME']` это путь к домашнему каталогу на некоторых платформах и эквивалентен `getenv("HOME")` в языке `C`.
+
+Переменная `os.environ` фиксируется при первом импорте [модуля `os`](https://docs-python.ru/standart-library/modul-os-python/ "Модуль os в Python, доступ к функциям ОС."), во время запуска Python. Изменения в среде OS, сделанные после этого времени, не отражаются `os.environ`, за исключением изменений, внесенных путем непосредственного изменения `os.environ`.
+
+Если платформа поддерживает функцию [`os.putenv()`](https://docs-python.ru/standart-library/modul-os-python/upravlenie-sredoj-okruzhenija-koda/#os.putenv), то сопоставление `os.environ` может использовать ее для изменения среды. Функция `os.putenv()` будет вызываться автоматически при изменении `os.environ`.
+
+Если платформа не поддерживает функцию `os.putenv()`, то измененная копия сопоставления `os.environ` может быть передана соответствующим функциям создания процессов, чтобы заставить дочерние процессы использовать измененную среду.
+
+В Unix ключи и значения используют [`sys.getfilesystemencoding()`](https://docs-python.ru/standart-library/modul-sys-python/kodirovka-ispolzuemaja/ "Кодировка, используемая Python.") и [обработчик ошибок `'surrogateescape'`](https://docs-python.ru/standart-library/modul-codecs-python/obrabotchiki-oshibok-kodirovki/ "Обработчики ошибок кодировки."). Если вы хотите использовать другую кодировку, то используйте [`os.environb`](https://docs-python.ru/standart-library/modul-os-python/upravlenie-sredoj-okruzhenija-koda/#os.environb).
+
+**Заметка**:
+
+- Вызов `os.putenv()`, напрямую не изменят `os.environ`, поэтому лучше менять значения ключей [`os.environ`](https://docs-python.ru/standart-library/modul-os-python/upravlenie-sredoj-okruzhenija-koda/#os.environ).
+- На некоторых платформах, включая FreeBSD и Mac OS X, настройка `os.environ` может вызвать утечки памяти.
+
+Если платформа поддерживает функцию [`os.unsetenv()`](https://docs-python.ru/standart-library/modul-os-python/upravlenie-sredoj-okruzhenija-koda/#os.unsetenv), то с ее помощью можно удалить элементы в этом отображении `os.environ` для сброса указанной переменной среды. Функция `os.unsetenv()` будет вызываться автоматически при удалении элемента из `os.environ` и при вызове одного из методов [.pop()](https://docs-python.ru/tutorial/operatsii-slovarjami-dict-python/metod-dict-pop/ "Метод dict.pop() в Python, примеры кода") или [.clear()](https://docs-python.ru/tutorial/operatsii-slovarjami-dict-python/metod-dict-clear/ "Метод dict.clear() в Python. Очистить словарь.").
+
+```python
+>>> import os
+>>> os.environ['LANG']
+# 'ru_RU.UTF-8'
+>>> os.environ['HOME']
+# '/home/docs-python'
+>>> os.environ['HOME'] = '/tmp'
+>>> os.environ.pop('HOME')
+# '/tmp'
+>>> os.environ.get('HOME', '/var/www')
+# '/var/www'
+
+# очистка среды окружения
+os.environ.clear()
+os.environ
+# environ({})
+```
 
 
 
