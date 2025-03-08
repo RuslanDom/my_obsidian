@@ -55,7 +55,7 @@ admin@4211349-qf86747:~$ ssh-keygen
 4. Создаём authorized_keys и помещаем туда необходимы ключ
 ```shell
 admin@4211349-qf86747:~$ cat >> .ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8l2m8m+5wC7We/pGZf8tly+AqhtpUNttT9e3wDjT1bWJRcWMbS91hFdKsxaiw/3v+9PG/fHVLZCBfP6yHjaUng2C495Ww85pjQiqsfXq9jqOgnsGfFJEkEYgab5yQd3JYMHO6WGwGAQDnpP+2rkeW13kYtoH3iDiDAmLCvBRWnv2cbP37nPr9j6/3dHBKD3F73LO9MJ8AeChl0FygYeI5gzHVZthLgG6k+DJF7mY571ZnjPIyrC+ob22nuH2xPVj8bsgm9yyghb/FnbjdojjfeF8F0qo/B3nkXbGakifT4ulIPz/Lxdau0Y+JwisxMgfD/ntglwtlEpbKs7oYqBaYCBPGCq6tHGn/4W9s4VdOvImVGlk9rZXuUMHUK5H61yVmpJ0n2rcQlPmCmyM3TzmMPmTnB6ewbclGw8rbh0o1kA6/+tYVTlWEaJtcV/L9SAUUHkQp+5bva9r6CznQckzAwEWbC6OH07ETN9NMwoXRXAOceUDZV6cX1i/W816TtLk8jlnF0QP/tI4JdIfcd2Pp+icOFHfj0Izt8/S9sLWD9nMl6t2KHCAbSdCNY28ePm7CnboLmpPwiEbFbN2D2fn6d03wp5MLZduFtmbUole2eLgd5Z0EYNeiT2udeCWYXaDMJIUnN2RMYkWaXj6lEBFekvCTJlOxwuCrtqKvHprYuw== Ruslan_key
+ssh-rsa AAAAB3NzaC1yc2E== Ruslan_key
 ```
 
 Теперь вход под пользователем admin происходит под ключом
